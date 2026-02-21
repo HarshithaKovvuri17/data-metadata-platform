@@ -1,0 +1,10 @@
+# Mandatory submission file for automated evaluation
+setup:
+  - docker-compose down -v
+  - docker-compose build
+run:
+  - docker-compose up -d db api
+  - sleep 10 # Ensures DB is ready before pipeline starts
+  - docker-compose run pipeline python pipeline.py
+test:
+  - python api/tests/test_api.py

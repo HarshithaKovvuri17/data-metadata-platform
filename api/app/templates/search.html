@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Datasets</h2>
+
+<ul>
+{% for ds in datasets %}
+    <li>
+        <a href="/catalog/{{ ds.id }}">
+            {{ ds.name }}
+        </a>
+        (Rows: {{ ds.row_count }}, Columns: {{ ds.column_count }})
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

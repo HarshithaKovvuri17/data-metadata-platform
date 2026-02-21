@@ -1,0 +1,4 @@
+pandas==1.5.3
+requests==2.32.5
+openlineage-python==1.9.1
+soda-core-scientific==3.5.6

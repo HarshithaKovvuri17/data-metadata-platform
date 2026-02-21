@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Metadata Catalog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>📊 Data Metadata Platform</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/catalog">Datasets</a>
+        <a href="/search">Search</a>
+    </nav>
+
+    <form action="/search">
+        <input type="text" name="q" placeholder="Search dataset...">
+        <button type="submit">Search</button>
+    </form>
+</header>
+
+<hr>
+
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

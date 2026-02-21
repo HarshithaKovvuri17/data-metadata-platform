@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: metadata_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: metadata
+      POSTGRES_PASSWORD: metadata123
+      POSTGRES_DB: metadata_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U metadata -d metadata_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./api
+    container_name: metadata_api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://metadata:metadata123@postgres:5432/metadata_db
+    ports:
+      - "5000:5000"
+
+  pipeline:
+    build: ./pipeline
+    container_name: metadata_pipeline
+    depends_on:
+      api:
+        condition: service_started
+
+volumes:
+  postgres_data:

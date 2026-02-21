@@ -1,0 +1,41 @@
+{
+    "eventType": "COMPLETE",
+    "eventTime": "2024-02-21T10:05:00.000000Z",
+    "run": {
+        "runId": "dbe28682-9653-41a4-9e32-a5e22f283921"
+    },
+    "job": {
+        "namespace": "food_platform",
+        "name": "product_ingestion_pipeline"
+    },
+    "producer": "https://github.com/my-org/metadata-pipeline",
+    "inputs": [],
+    "outputs": [
+        {
+            "namespace": "food_platform",
+            "name": "sample_products",
+            "facets": {
+                "schema": {
+                    "fields": [
+                        {
+                            "name": "id",
+                            "type": "int64"
+                        },
+                        {
+                            "name": "name",
+                            "type": "object"
+                        },
+                        {
+                            "name": "price",
+                            "type": "int64"
+                        },
+                        {
+                            "name": "category",
+                            "type": "object"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
