@@ -48,7 +48,7 @@ PostgreSQL Database
 ---
 
 ## 📂 Project Structure
-
+```
 data-metadata-platform/
 │
 ├
@@ -100,7 +100,7 @@ data-metadata-platform/
 ├── data_quality_report.md
 ├── README.md
 └── generate_readme.py
-
+```
 ---
 
 ## 🗄️ Database Tables
